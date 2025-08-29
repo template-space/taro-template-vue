@@ -1,0 +1,6 @@
+.outer{
+  .inner{
+    color: blue;
+    font-size: xx-large;
+  }
+}
