@@ -3,6 +3,7 @@ import { setupStore } from "./stores";
 import "@nutui/nutui-taro/dist/style.css";
 import "./app.css";
 
+
 const App = createApp({
   onShow(options) {
     console.log("App onShow.");

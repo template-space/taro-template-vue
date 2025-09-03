@@ -8,6 +8,13 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    Footer: typeof import('./src/components/Footer.vue')['default']
+    Header: typeof import('./src/components/Header.vue')['default']
     NutButton: typeof import('@nutui/nutui-taro')['Button']
+    NutConfigProvider: typeof import('@nutui/nutui-taro')['ConfigProvider']
+    NutTabbar: typeof import('@nutui/nutui-taro')['Tabbar']
+    NutTabbarItem: typeof import('@nutui/nutui-taro')['TabbarItem']
+    RouterLink: typeof import('vue-router')['RouterLink']
+    RouterView: typeof import('vue-router')['RouterView']
   }
 }

@@ -37,6 +37,19 @@ export default defineConfig<"webpack5">(async (merge, { command, mode }) => {
           pxtransformBlackList: [/page|h5/],
         },
       ],
+      [
+        "@tarojs/plugin-framework-vue3",
+        {
+          vueLoaderOption: {
+            compilerOptions: {
+              isCustomElement: (tag) => tag.includes("ec-canvas"),
+              whitespace: "preserve",
+              // ...
+            },
+            reactivityTransform: true, // 开启vue3响应性语法糖
+          },
+        },
+      ],
     ],
     defineConstants: {},
     copy: {
@@ -59,6 +72,11 @@ export default defineConfig<"webpack5">(async (merge, { command, mode }) => {
       enable: false, // Webpack 持久化缓存配置，建议开启。默认配置请参考：https://docs.taro.zone/docs/config-detail#cache
     },
     mini: {
+      // 解决Error: chunk common [mini-css-extract-plugin]警告问题
+      // https://github.com/NervJS/taro/issues/14034
+      miniCssExtractPluginOption: {
+        ignoreOrder: true,
+      },
       postcss: {
         htmltransform: {
           enable: true,
@@ -111,7 +129,7 @@ export default defineConfig<"webpack5">(async (merge, { command, mode }) => {
       },
     },
     h5: {
-      publicPath: "/",
+      publicPath: "./",
       staticDirectory: "static",
       output: {
         filename: "js/[name].[hash:8].js",

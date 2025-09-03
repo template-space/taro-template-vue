@@ -1,1 +1,5 @@
 @import "weapp-tailwindcss";
+
+page{
+  @apply h-full;
+}

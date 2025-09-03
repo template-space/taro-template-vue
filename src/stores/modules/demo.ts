@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { piniaStore } from '../../stores'
+import { piniaStore } from '@/stores'
 
 const useCounterStore = defineStore('counter', {
   state: () => {
