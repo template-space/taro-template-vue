@@ -63,9 +63,7 @@ pnpm build:h5
 
 ```bash
 git add .
-git commit -m 'feat:xxx'
-git pull origin main
-git push origin main
+pnpm cz
 ```
 
 ## 🍣 Git 规范
