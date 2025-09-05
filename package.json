@@ -10,7 +10,6 @@
     "framework": "Vue3"
   },
   "scripts": {
-    "prepare": "husky",
     "new": "taro new",
     "build:weapp": "taro build --type weapp",
     "build:swan": "taro build --type swan",
@@ -30,7 +29,8 @@
     "dev:qq": "npm run build:qq -- --watch",
     "dev:jd": "npm run build:jd -- --watch",
     "dev:harmony-hybrid": "npm run build:harmony-hybrid -- --watch",
-    "postinstall": "weapp-tw patch"
+    "postinstall": "weapp-tw patch",
+    "cz": "git-cz"
   },
   "browserslist": [
     "defaults and fully supports es6-module",
@@ -57,6 +57,7 @@
     "@tarojs/shared": "4.1.5",
     "@tarojs/taro": "4.1.5",
     "pinia": "^2.0.24",
+    "taro-axios": "^1.1.1",
     "taro-plugin-pinia": "^1.0.0",
     "vue": "^3.0.0",
     "vue-router": "^4"
@@ -66,6 +67,7 @@
     "@babel/plugin-transform-class-properties": "7.25.9",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
+    "@commitlint/prompt-cli": "^19.8.1",
     "@nutui/auto-import-resolver": "^1.0.0",
     "@tailwindcss/postcss": "^4.1.12",
     "@tarojs/cli": "4.1.5",
@@ -80,7 +82,10 @@
     "@vue/compiler-sfc": "^3.0.0",
     "autoprefixer": "^10.4.21",
     "babel-preset-taro": "4.1.5",
+    "commitizen": "^4.3.1",
+    "commitlint": "^19.8.1",
     "css-loader": "^7.1.1",
+    "cz-customizable": "^7.5.1",
     "eslint": "^8.57.0",
     "eslint-config-taro": "4.1.5",
     "eslint-plugin-vue": "^9.17.0",
@@ -97,6 +102,16 @@
     "vue-loader": "^17.4.2",
     "weapp-tailwindcss": "^4.2.6",
     "webpack": "5.91.0"
+  },
+  "lint-staged": {
+    "src/**/*.{vue,js,ts,jsx,tsx}": [
+      "eslint --fix"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    }
   },
   "packageManager": "pnpm@10.11.0+sha512.6540583f41cc5f628eb3d9773ecee802f4f9ef9923cc45b69890fb47991d4b092964694ec3a4f738a420c918a333062c8b925d312f42e4f0c263eb603551f977"
 }

@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+# 运行 lint-staged 检查代码
+npx --no -- lint-staged

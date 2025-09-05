@@ -2,7 +2,7 @@
   "miniprogramRoot": "./dist",
   "projectname": "taro-template-vue",
   "description": "专注于Taro多端开发的简单模板",
-  "appid": "wxb56964dd28204de0",
+  "appid": "TARO_APP_ID",
   "setting": {
     "urlCheck": true,
     "es6": false,

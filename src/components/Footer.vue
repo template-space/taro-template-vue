@@ -2,8 +2,10 @@
   <view class="footer">
     <nut-tabbar
       v-model="activeName"
+      bottom
+      safe-area-inset-bottom
+      placeholder
       @tab-switch="tabSwitch"
-      :safe-area-inset-bottom="true"
     >
       <nut-tabbar-item
         v-for="item in list"
@@ -11,8 +13,7 @@
         :name="item.name"
         :tab-title="item.title"
         :icon="item.icon"
-      >
-      </nut-tabbar-item>
+      />
     </nut-tabbar>
   </view>
 </template>

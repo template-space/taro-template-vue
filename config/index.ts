@@ -77,6 +77,9 @@ export default defineConfig<"webpack5">(async (merge, { command, mode }) => {
       miniCssExtractPluginOption: {
         ignoreOrder: true,
       },
+      prerender: {
+        match: "pages/**", // 添加页面预渲染，防止tabar出现闪烁
+      },
       postcss: {
         htmltransform: {
           enable: true,
@@ -127,7 +130,7 @@ export default defineConfig<"webpack5">(async (merge, { command, mode }) => {
           })
         );
       },
-    },
+    } as any,
     h5: {
       publicPath: "./",
       staticDirectory: "static",
