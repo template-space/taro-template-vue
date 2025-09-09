@@ -7,6 +7,7 @@ import devConfig from "./dev";
 import prodConfig from "./prod";
 import path from "path";
 
+
 // https://taro-docs.jd.com/docs/next/config#defineconfig-辅助函数
 export default defineConfig<"webpack5">(async (merge, { command, mode }) => {
   const baseConfig: UserConfigExport<"webpack5"> = {
@@ -14,7 +15,13 @@ export default defineConfig<"webpack5">(async (merge, { command, mode }) => {
     date: "2025-8-29",
     designWidth(input) {
       // 配置 NutUI 375 尺寸
-      if (input?.file?.replace(/\\+/g, "/").indexOf("@nutui") > -1) {
+      if (
+        typeof input === "object" &&
+        input !== null &&
+        "file" in input &&
+        typeof (input as any).file === "string" &&
+        (input as any).file.replace(/\\+/g, "/").indexOf("@nutui") > -1
+      ) {
         return 375;
       }
       // 全局使用 Taro 默认的 750 尺寸
@@ -65,7 +72,7 @@ export default defineConfig<"webpack5">(async (merge, { command, mode }) => {
     compiler: {
       type: "webpack5",
       prebundle: {
-        enable: false, // 开启后导致pinia丢失响应式
+        enable: false, // 开启后导致小程序pinia丢失响应式
       },
     },
     cache: {
@@ -77,9 +84,12 @@ export default defineConfig<"webpack5">(async (merge, { command, mode }) => {
       miniCssExtractPluginOption: {
         ignoreOrder: true,
       },
-      prerender: {
-        match: "pages/**", // 添加页面预渲染，防止tabar出现闪烁
-      },
+      prerender:
+        mode !== "development"
+          ? {
+              match: "pages/**", // 添加页面预渲染，防止tabar出现闪烁
+            }
+          : {},
       postcss: {
         htmltransform: {
           enable: true,
@@ -132,7 +142,6 @@ export default defineConfig<"webpack5">(async (merge, { command, mode }) => {
       },
     } as any,
     h5: {
-      publicPath: "./",
       staticDirectory: "static",
       output: {
         filename: "js/[name].[hash:8].js",

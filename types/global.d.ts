@@ -10,7 +10,7 @@ declare module '*.less';
 declare module '*.scss';
 declare module '*.sass';
 declare module '*.styl';
-
+declare module 'path';
 declare namespace NodeJS {
   interface ProcessEnv {
     /** NODE 内置环境变量, 会影响到最终构建生成产物 */
@@ -25,6 +25,7 @@ declare namespace NodeJS {
     TARO_APP_ID: string
   }
 }
+
 
 declare module '@tarojs/components' {
   export * from '@tarojs/components/types/index.vue3'
