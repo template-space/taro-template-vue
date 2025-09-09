@@ -1,5 +1,7 @@
 <template>
-  <view class="footer">
+  <view class="footer relative">
+    <!-- 安全区 -->
+    <view class="h-[var(--nut-tabbar-height,_100px)]" />
     <nut-tabbar
       v-model="activeName"
       bottom

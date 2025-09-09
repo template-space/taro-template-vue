@@ -1,15 +1,17 @@
 <template>
-  <nut-config-provider class="h-full" :theme-vars="themeVars">
+  <nut-config-provider
+    class="h-full"
+    :theme-vars="themeVars"
+  >
     <view class="layout h-full flex flex-col">
-      <view class="header" v-show="isShowHeader">
-        <Header :title="title" />
-      </view>
+      <Header
+        v-show="isShowHeader"
+        :title="title"
+      />
       <view class="content flex-1">
         <slot />
       </view>
-      <view class="footer" v-show="isShowFooter">
-        <Footer :activeName="footerActive" />
-      </view>
+      <Footer v-show="isShowFooter" />
     </view>
   </nut-config-provider>
 </template>
@@ -23,13 +25,11 @@ type Props = {
   title: string;
   isShowHeader?: boolean;
   isShowFooter?: boolean;
-  footerActive: string;
 };
 withDefaults(defineProps<Props>(), {
   title: "标题",
   isShowHeader: false,
   isShowFooter: true,
-  footerActive: "home"
 });
 
 // 重置nutui样式 https://nutui.jd.com/taro/vue/4x/#/zh-CN/component/configprovider

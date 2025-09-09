@@ -84,7 +84,6 @@ pnpm cz
 
 ## 后续功能接入
 
-🔳[taro-axios](https://github.com/fjc0k/taro-axios/tree/master)API 采用模块化导入方式
 🔳上拉刷新、下拉加载
 🔳子页面分包，跳转、拦截
 🔳图片、视频、canvas、图表echarts

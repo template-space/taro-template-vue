@@ -1,5 +1,5 @@
 <template>
-  <view class="header">
+  <view class="header relative">
     header
   </view>
 </template>
